@@ -3,7 +3,7 @@
 ## Project details
 
 ### Introduction
-This project contains a website built using a test-driven-development approach.
+This project contains a to-do lists site, built using a test-driven-development approach.
 
 ### Tools and tech stack
 - Django 5.1.1
