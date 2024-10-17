@@ -1,4 +1,3 @@
-import unittest
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -39,7 +38,7 @@ class NewVisitorTest(LiveServerTestCase):
         # When she hits enter, the page updates, and now the page lists
         # "1: Buy peacock feathers" as an item in a to-do list
         inputbox.send_keys(Keys.ENTER)
-        time.sleep(3)
+        time.sleep(1)
         self.check_for_row_in_list_table("1: Buy peacock feathers")
 
         # There is still a text box inviting her to add another item.
