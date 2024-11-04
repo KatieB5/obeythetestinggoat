@@ -8,6 +8,7 @@ __pycache__/
 
 # Database
 db.sqlite3
+src/db.sqlite3
 
 # root directory copy of static files
 /static
