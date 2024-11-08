@@ -12,3 +12,4 @@ src/db.sqlite3
 
 # root directory copy of static files
 /static
+src/static
