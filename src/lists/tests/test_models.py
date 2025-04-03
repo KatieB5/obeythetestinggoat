@@ -2,6 +2,9 @@ from django.test import TestCase
 from lists.models import Item, List
 from django.db.utils import IntegrityError
 from django.core.exceptions import ValidationError
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class ItemModelTest(TestCase):
@@ -61,3 +64,11 @@ class ListModelTest(TestCase):
     def test_get_absolute_url(self):
         mylist = List.objects.create()
         self.assertEqual(mylist.get_absolute_url(), f"/lists/{mylist.id}/")
+
+    def test_lists_can_have_owners(self):
+        user = User.objects.create(email="a@b.com")
+        mylist = List.objects.create(owner=user)
+        self.assertIn(mylist, user.lists.all())
+
+    def test_list_owner_is_optional(self):
+        List.objects.create()  # should not raise
