@@ -19,6 +19,14 @@
     </table>
   </div>
 </div>
+
+<h4>Share this list:</h4>
+<form method="POST" action="{% url 'share_list' list.id %}">
+  {% csrf_token %}
+  <input class="form-control" name="sharee" placeholder="your-friend@example.com"/>
+  <button type="submit" class="btn btn-primary mt-2">Share</button>
+</form>
+</div>
 {% endblock %}
 
 {% block scripts %}

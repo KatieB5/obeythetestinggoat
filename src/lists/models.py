@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
+from django.contrib.auth import get_user_model
 
 # Create your models here.
 class List(models.Model):
@@ -11,9 +12,19 @@ class List(models.Model):
         null=True,
         on_delete=models.CASCADE,
     )
+    shared_with = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name="shared_lists",
+    )
 
     def get_absolute_url(self):
         return reverse("view_list", args=[self.id])
+
+
+    def add(self, email):
+        User = get_user_model()
+        user = User.objects.get(email=email)
+        self.shared_with.add(user)
 
     @property
     def name(self):
