@@ -26,7 +26,14 @@
   <input class="form-control" name="sharee" placeholder="your-friend@example.com"/>
   <button type="submit" class="btn btn-primary mt-2">Share</button>
 </form>
-</div>
+
+<h4>Shared with:</h4>
+<ul>
+  {% for shared_with in list.shared_with.all %}
+    <li>{{ shared_with }}</a></li>
+  {% endfor %}
+</ul>
+
 {% endblock %}
 
 {% block scripts %}
