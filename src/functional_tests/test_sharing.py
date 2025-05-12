@@ -28,11 +28,6 @@ class SharingTest(FunctionalTest):
         # Edith goes to the home page and starts a list
         self.browser = edith_browser
         self.browser.get(self.live_server_url)
-        self.add_list_item("Get help")
-
-        # Edith goes to the home page and starts a list
-        self.browser = edith_browser
-        self.browser.get(self.live_server_url)
         list_page = ListPage(self).add_list_item("Get help")
 
         # She notices a "Share this list" option

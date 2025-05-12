@@ -27,10 +27,15 @@
   <button type="submit" class="btn btn-primary mt-2">Share</button>
 </form>
 
+{% if list.owner %}
+  <h4>List owner:</h4>
+    <p id="id_list_owner">{{ list.owner.email }}</p>
+{% endif %}
+
 <h4>Shared with:</h4>
 <ul>
-  {% for shared_with in list.shared_with.all %}
-    <li>{{ shared_with }}</a></li>
+  {% for sharee in list.shared_with.all %}
+    <li class="list-sharee">{{ sharee.email }}</a></li>
   {% endfor %}
 </ul>
 
